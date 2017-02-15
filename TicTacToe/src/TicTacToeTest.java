@@ -49,37 +49,37 @@ public class TicTacToeTest {
 					}
 
 					System.out.println("Player1 chose the spot "+ p1spot);
-					tc.changePlayer(p1spot);	//player1 has finished playing now switch to player2	
+					tc.changePlayer(p1spot); //player1 has finished playing now switch to player2	
 				}
 				else {
 					System.out.println();
 					System.out.println("Player2! Choose a number between 0 and 8!!");
 					int p2spot = tc.player2Spot();
-					tc.changePlayer(p2spot);	//Since, player2 has finished playing, change to player1
+					tc.changePlayer(p2spot); //Since, player2 has finished playing, change to player1
 					System.out.println("Player2 chose the spot " +p2spot);
 				}
 				System.out.println();
-				tc.printBoard();	//After each player plays, display the board
+				tc.printBoard(); //After each player plays, display the board
 			}
 			System.out.println();
-			System.out.println(tc.gameOver());	//Calling the method gameOver to print the result of the game
+			System.out.println(tc.gameOver()); //Calling the method gameOver to print the result of the game
 			System.out.println();	
 
 			System.out.println("Do you want to play again? If yes, type Y else N");
 
-			char result = sc.next().charAt(0);		//Enter either Y or N
+			char result = sc.next().charAt(0); //Enter either Y or N
 
 			if(Character.toUpperCase(result)=='Y'){
 				System.out.println("Let's play again!!!");
-				startgame = true;	//start the first while loop again
+				startgame = true; //start the first while loop again
 			}
 			else if (Character.toUpperCase(result)=='N'){
 				System.out.println("Game Over!!!");	
-				startgame = false;	//No more games
+				startgame = false; //No more games
 			}
 			else{
 				System.out.println("You have typed an invalid letter. Please type Y or N");
-				result = sc.next().charAt(0);  //Asking for another letter
+				result = sc.next().charAt(0); //Asking for another letter
 			}
 		}
 	}
