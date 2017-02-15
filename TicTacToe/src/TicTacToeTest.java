@@ -3,21 +3,21 @@ import java.util.Scanner;
 public class TicTacToeTest {
 
 	public static void main(String[] args) {
-		
+
 		boolean startgame = true;
 		System.out.println("Welcome to the game of TicTacToe");
-		
+
 		TicTacToe t1 = new TicTacToe();
-		
+
 		while(startgame){	
 			System.out.println();
 			System.out.println("Hi Player1! Choose whether you want to be X or O. Please type below");
 			Scanner sc = new Scanner(System.in);
-			
+
 			//Asking the player to input either X or O
 			t1.setPlayer1(sc.next().charAt(0));
-			
-			
+
+
 			//If player1 chooses X, then player2 will be O else X
 			if(t1.getPlayer1()=='X'){
 				t1.setPlayer2('O');
@@ -32,7 +32,7 @@ public class TicTacToeTest {
 
 			System.out.println("Let us start the game. Choose a number between 0 and 8");
 			System.out.println();
-			
+
 			//Printing the game board for the players to choose the numbers
 			tc.printPlayerBoard();
 
@@ -41,13 +41,13 @@ public class TicTacToeTest {
 					System.out.println();
 					System.out.println("Player1! Choose a number between 0 and 8!!");
 					int p1spot = sc.nextInt();
-					
+
 					//if the spot chosen by the player is either already taken or an invalid number, ask to type again
 					while(tc.isValid(p1spot)==false){
 						System.out.println("This is an invalid choice or the number is already taken, choose another number between 0 and 8");
 						p1spot= sc.nextInt();
 					}
-					
+
 					System.out.println("Player1 chose the spot "+ p1spot);
 					tc.changePlayer(p1spot);	//player1 has finished playing now switch to player2	
 				}
@@ -64,11 +64,11 @@ public class TicTacToeTest {
 			System.out.println();
 			System.out.println(tc.gameOver());	//Calling the method gameOver to print the result of the game
 			System.out.println();	
-			
+
 			System.out.println("Do you want to play again? If yes, type Y else N");
-			
+
 			char result = sc.next().charAt(0);		//Enter either Y or N
-			
+
 			if(Character.toUpperCase(result)=='Y'){
 				System.out.println("Let's play again!!!");
 				startgame = true;	//start the first while loop again

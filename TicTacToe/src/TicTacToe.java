@@ -8,11 +8,11 @@ public class TicTacToe {
 	protected char player2;
 	protected char currentPlayer;
 	protected char winner;
-	
+
 	//Creating a no parameter constructor
 	public TicTacToe(){
 	}
-	
+
 	//Creating accessor and mutator methods
 	public void setPlayer1(char player1){
 		this.player1=player1;
@@ -21,15 +21,15 @@ public class TicTacToe {
 	public void setPlayer2(char player2){
 		this.player2=player2;
 	}
-	
+
 	public char getPlayer1(){
 		return player1;
 	}
-	
+
 	public char getPlayer2(){
 		return player2;
 	}
-	
+
 	public char getCurrentPlayer(){
 		return currentPlayer;
 	}
@@ -42,7 +42,7 @@ public class TicTacToe {
 		this.board=initializeBoard();
 		this.winner=' ';
 	}
-	
+
 	//Initializing the board with blank spaces
 	public char[] initializeBoard(){
 		char[] board= new char[9];
@@ -52,7 +52,7 @@ public class TicTacToe {
 		System.out.println(board);
 		return board;
 	}
-	
+
 	//Creating how the tictactoe board should look like
 	public void printBoard(){
 		System.out.println();
@@ -65,7 +65,7 @@ public class TicTacToe {
 		}
 		System.out.println();
 	}
-	
+
 	//Creating the same board with numbers shown for players to see which numbers to choose
 	public void printPlayerBoard(){
 		System.out.println();
@@ -78,7 +78,7 @@ public class TicTacToe {
 		}
 		System.out.println();
 	}
-	
+
 	//Check if the board is full or not
 	public boolean isBoardFull(){
 		boolean isFull = true;
@@ -89,7 +89,7 @@ public class TicTacToe {
 		}
 		return isFull;
 	}
-	
+
 	public boolean isValid(int spot){
 		if(((spot>=0 && spot<=8)) && board[spot]==' '){
 			return true;
@@ -97,7 +97,7 @@ public class TicTacToe {
 		else 
 			return false;
 	}
-	
+
 	//Switch the player from 1 to 2 or vice versa
 	public char changePlayer(int spot){ 
 		if(isValid(spot)){
@@ -110,7 +110,7 @@ public class TicTacToe {
 		}
 		return currentPlayer;
 	}
-	
+
 	//Check for a winner
 	public boolean checkForWinner() {
 		if ((rightDiag() || leftDiag() || midRow() || secCol()) && board[4] != ' '){
@@ -150,20 +150,20 @@ public class TicTacToe {
 	public boolean leftDiag() {
 		return board[2]==board[4] && board[4]==board[6];
 	}
-	
+
 	//Player2 picks a spot with random generation
 	public int player2Spot() {
-        ArrayList<Integer> p2spot = new ArrayList<Integer>();
-        for (int i = 0; i < 9; i++) {
-            if (board[i] == ' ') {
-            	p2spot.add(i);
-            }
-        }
-        Random rand = new Random();
-        int p2spotMark = p2spot.get(Math.abs(rand.nextInt() % p2spot.size()));
-        return p2spotMark;
-    }
-	
+		ArrayList<Integer> p2spot = new ArrayList<Integer>();
+		for (int i = 0; i < 9; i++) {
+			if (board[i] == ' ') {
+				p2spot.add(i);
+			}
+		}
+		Random rand = new Random();
+		int p2spotMark = p2spot.get(Math.abs(rand.nextInt() % p2spot.size()));
+		return p2spotMark;
+	}
+
 	//Check if game is over or not
 	public String gameOver(){
 		if(checkForWinner()){
