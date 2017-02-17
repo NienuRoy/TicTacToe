@@ -57,7 +57,7 @@ public class TicTacToe {
 	public void printBoard(){
 		System.out.println();
 		for(int i=0;i<9;i++){
-			if(i%3 ==0 && i!=0){
+			if((i==3 ||i==6) && i!=0){
 				System.out.println();
 				System.out.println("------------");		
 			}
@@ -70,7 +70,7 @@ public class TicTacToe {
 	public void printPlayerBoard(){
 		System.out.println();
 		for(int i=0;i<9;i++){
-			if(i%3 ==0 && i!=0){
+			if((i==3 ||i==6) && i!=0){
 				System.out.println();
 				System.out.println("------------");		
 			}
